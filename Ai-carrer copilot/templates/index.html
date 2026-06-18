@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Career Copilot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <div class="nav-brand">
+    <span class="brand-icon">◈</span>
+    <span class="brand-name">AI Career Copilot</span>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#upload-section">Resume</a></li>
+    <li><a href="#dashboard">Dashboard</a></li>
+    <li><a href="#skill-gap-section">Skills</a></li>
+    <li><a href="#interview-section">Interview</a></li>
+    <li><a href="#roadmap-section">Roadmap</a></li>
+    <li><a href="#assistant-section">AI Assistant</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Powered by AI</div>
+    <h1 class="hero-title">Your Career,<br /><span class="gradient-text">Supercharged.</span></h1>
+    <p class="hero-sub">Upload your resume and get an instant ATS score, skill gap analysis, personalised interview prep, and a custom learning roadmap — all in seconds.</p>
+    <a href="#upload-section" class="hero-cta">Analyse My Resume →</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-pill">📄 Resume Analysis</div>
+    <div class="stat-pill">🎯 ATS Scoring</div>
+    <div class="stat-pill">🧩 Skill Gap</div>
+    <div class="stat-pill">🗺 Roadmap</div>
+  </div>
+</section>
+
+<!-- Upload -->
+<section class="section" id="upload-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Step 01</span>
+      <h2>Upload Your Resume</h2>
+      <p>Drop your PDF resume below to begin the analysis.</p>
+    </div>
+    <div class="upload-card" id="drop-zone">
+      <div class="upload-icon">📂</div>
+      <p class="upload-title">Drag & drop your PDF here</p>
+      <p class="upload-sub">or</p>
+      <label class="upload-btn" for="resume-input">Choose File</label>
+      <input type="file" id="resume-input" accept=".pdf" hidden />
+      <p class="upload-hint">PDF only · Max 10 MB</p>
+      <div class="upload-success hidden" id="upload-success">
+        <span>✅</span> Resume uploaded successfully
+      </div>
+    </div>
+    <div class="loader hidden" id="upload-loader">
+      <div class="spinner"></div>
+      <p>Analysing your resume…</p>
+    </div>
+  </div>
+</section>
+
+<!-- Parsed Resume -->
+<section class="section hidden" id="parsed-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Step 02</span>
+      <h2>Resume Overview</h2>
+      <p>Extracted information from your resume.</p>
+    </div>
+    <div class="cards-grid" id="parsed-cards"></div>
+  </div>
+</section>
+
+<!-- Dashboard -->
+<section class="section hidden" id="dashboard">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Step 03</span>
+      <h2>Career Insights Dashboard</h2>
+      <p>Your resume at a glance.</p>
+    </div>
+    <div class="dashboard-grid">
+      <div class="glass-card ats-card">
+        <h3 class="card-title">ATS Score</h3>
+        <div class="ats-ring-wrap">
+          <svg class="ats-ring" viewBox="0 0 120 120">
+            <circle class="ring-bg"   cx="60" cy="60" r="52" />
+            <circle class="ring-fill" cx="60" cy="60" r="52" id="ring-fill"
+              stroke-dasharray="326.7" stroke-dashoffset="326.7" />
+          </svg>
+          <div class="ats-ring-label">
+            <span class="ats-number" id="ats-number">0</span>
+            <span class="ats-denom">/100</span>
+          </div>
+        </div>
+        <div class="ats-lists" id="ats-lists"></div>
+      </div>
+      <div class="metrics-col">
+        <div class="glass-card metric-card">
+          <div class="metric-icon">🎯</div>
+          <div>
+            <div class="metric-label">Resume Strength</div>
+            <div class="metric-value" id="metric-strength">—</div>
+          </div>
+        </div>
+        <div class="glass-card metric-card">
+          <div class="metric-icon">🧩</div>
+          <div>
+            <div class="metric-label">Skill Match</div>
+            <div class="metric-value" id="metric-skill">—</div>
+          </div>
+        </div>
+        <div class="glass-card metric-card">
+          <div class="metric-icon">⚠️</div>
+          <div>
+            <div class="metric-label">Missing Skills</div>
+            <div class="metric-value" id="metric-missing">—</div>
+          </div>
+        </div>
+        <div class="glass-card metric-card">
+          <div class="metric-icon">💼</div>
+          <div>
+            <div class="metric-label">Target Role</div>
+            <div class="metric-value" id="metric-role">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skill Gap -->
+<section class="section hidden" id="skill-gap-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Step 04</span>
+      <h2>Skill Gap Analysis</h2>
+      <p>Select your target role to see what skills you have and what to learn next.</p>
+    </div>
+    <div class="role-select-wrap">
+      <label class="role-label" for="role-select">Target Role</label>
+      <select class="role-select" id="role-select">
+        <option>Software Developer</option>
+        <option>Python Developer</option>
+        <option>Frontend Developer</option>
+        <option>Machine Learning Engineer</option>
+        <option>Data Analyst</option>
+      </select>
+      <button class="btn-primary" id="analyse-gap-btn">Analyse Gap</button>
+    </div>
+    <div class="skill-gap-grid hidden" id="skill-gap-results">
+      <div class="glass-card">
+        <h3 class="card-title">✅ Skills You Have</h3>
+        <div class="skill-match-bar-wrap">
+          <div class="skill-match-bar">
+            <div class="skill-match-fill" id="match-fill"></div>
+          </div>
+          <span class="match-pct" id="match-pct">0%</span>
+        </div>
+        <div class="skill-tags" id="skills-found"></div>
+      </div>
+      <div class="glass-card">
+        <h3 class="card-title">🚀 Skills to Learn</h3>
+        <div class="skill-tags missing" id="skills-missing"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Interview Coach -->
+<section class="section hidden" id="interview-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Step 05</span>
+      <h2>Interview Coach</h2>
+      <p>Practice questions tailored to your skill set.</p>
+    </div>
+    <div class="interview-tabs">
+      <button class="tab-btn active" data-level="beginner">Beginner</button>
+      <button class="tab-btn" data-level="intermediate">Intermediate</button>
+      <button class="tab-btn" data-level="advanced">Advanced</button>
+    </div>
+    <div class="questions-list" id="questions-list"></div>
+  </div>
+</section>
+
+<!-- Roadmap -->
+<section class="section hidden" id="roadmap-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Step 06</span>
+      <h2>Learning Roadmap</h2>
+      <p>Your personalised week-by-week plan to reach your target role.</p>
+    </div>
+    <div class="roadmap-timeline" id="roadmap-timeline"></div>
+  </div>
+</section>
+
+<!-- Download Report -->
+<section class="section hidden" id="download-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Step 07</span>
+      <h2>Download Your Report</h2>
+      <p>Save your full career analysis as a text file.</p>
+    </div>
+    <div class="download-wrap">
+      <button class="btn-primary btn-large" id="download-btn">
+        ⬇ Download Full Report
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- AI Assistant -->
+<section class="section" id="assistant-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">AI Assistant</span>
+      <h2>Career Assistant</h2>
+      <p>Ask anything about resumes, interviews, skills, or your career path.</p>
+    </div>
+    <div class="chat-panel glass-card">
+      <div class="chat-messages" id="chat-messages">
+        <div class="chat-msg bot">
+          <div class="chat-avatar">◈</div>
+          <div class="chat-bubble">👋 Hi! I am your AI Career Copilot. Ask me about resume tips, interview strategies, skill recommendations, or career advice.</div>
+        </div>
+      </div>
+      <div class="chat-input-row">
+        <input class="chat-input" id="chat-input" type="text"
+          placeholder="Ask me anything about your career…" autocomplete="off" />
+        <button class="chat-send-btn" id="chat-send">Send</button>
+      </div>
+    </div>
+    <div class="quick-prompts">
+      <button class="quick-prompt" data-prompt="How do I improve my resume?">💡 Improve resume</button>
+      <button class="quick-prompt" data-prompt="How do I prepare for technical interviews?">🎤 Interview prep</button>
+      <button class="quick-prompt" data-prompt="What skills should I learn for a better career?">🧠 Skill advice</button>
+      <button class="quick-prompt" data-prompt="How do I switch to a tech career?">🔀 Career switch</button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>◈ AI Career Copilot — Built with Flask</p>
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
