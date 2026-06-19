@@ -53,23 +53,7 @@ ai-career-copilot/
 4. A resume score is generated.
 5. Users receive detailed feedback and suggestions for improvement.
 
-## 📸 Screenshots
 
-### Home Page
-
-![Home Page](screenshots/homepage.png)
-
-### Resume Upload
-
-![Resume Upload](screenshots/upload.png)
-
-### Analysis Result
-
-![Analysis Result](screenshots/result.png)
-
-### Mobile Responsive View
-
-![Mobile View](screenshots/mobile.png)
 
 ## ⚙️ Installation
 
