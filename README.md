@@ -1,118 +1,162 @@
-# AI Career Copilot
+# SmartCart – AI-Powered Full Stack E-Commerce Platform
 
-AI Career Copilot is a career guidance and resume analysis platform built using Flask, HTML, CSS, and JavaScript. The application helps users evaluate their resumes, receive structured feedback, identify improvement areas, and improve overall job readiness through automated analysis.
+SmartCart is a modern full-stack e-commerce platform built using Flask, MySQL, HTML, CSS, and JavaScript. The application provides a complete online shopping experience with product browsing, user authentication, shopping cart management, wishlist functionality, checkout processing, and an AI-powered shopping assistant.
 
 ## 🚀 Live Demo
 
-[https://ai-carrer-copilot.onrender.com/]
+[Add Your Live Demo Link Here]
 
 ## 📌 Features
 
-- Resume Upload and Analysis
-- Resume Scoring System
-- Skills Assessment
-- Personalized Feedback
-- Resume Improvement Suggestions
-- User-Friendly Interface
-- Responsive Design
-- Fast Resume Evaluation
+### User Authentication
+
+* User Registration
+* Secure Login System
+* Session Management
+
+### Shopping Experience
+
+* Browse Product Catalog
+* Product Detail Pages
+* Product Search & Filtering
+* Responsive Product Layout
+
+### Cart Management
+
+* Add to Cart
+* Remove from Cart
+* Quantity Management
+* Dynamic Cart Total Calculation
+
+### Wishlist System
+
+* Save Favorite Products
+* Move Products Between Wishlist and Cart
+
+### Checkout Process
+
+* Order Summary
+* Checkout Workflow
+* Order Placement Functionality
+
+### AI Shopping Assistant
+
+* Interactive Shopping Guidance
+* Product Recommendations
+* Enhanced User Experience
+
+### Responsive Design
+
+* Mobile-Friendly Interface
+* Modern UI Components
+* Smooth Navigation Experience
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- HTML
-- CSS
-- JavaScript
+
+* HTML
+* CSS
+* JavaScript
 
 ### Backend
-- Python
-- Flask
 
-### Analysis System
-- Rule-Based Resume Evaluation
-- Automated Feedback Generation
+* Python
+* Flask
+
+### Database
+
+* MySQL
+
+### Deployment & Tools
+
+* Git
+* GitHub
+* VS Code
+* Vercel
+* Render
 
 ## 📂 Project Structure
 
-```text
-ai-career-copilot/
+smartcart/
+
 │
+
 ├── app.py
+
 ├── templates/
+
 ├── static/
-├── uploads/
+
+├── database/
+
 ├── requirements.txt
+
 └── README.md
-```
 
 ## 🔍 How It Works
 
-1. Upload a resume.
-2. The system processes and analyzes the resume content.
-3. Key sections such as skills, education, and project experience are evaluated.
-4. A resume score is generated.
-5. Users receive detailed feedback and suggestions for improvement.
-
-
+1. Users create an account or log in.
+2. Browse products and view detailed information.
+3. Add products to cart or wishlist.
+4. Manage quantities and review order summary.
+5. Proceed to checkout and place orders.
+6. AI Shopping Assistant helps users discover products and improve shopping decisions.
 
 ## ⚙️ Installation
 
 Clone the repository:
 
-```bash
-git clone https://github.com/YOUR_USERNAME/ai-career-copilot.git
-```
+git clone https://github.com/YOUR_USERNAME/smartcart.git
 
 Navigate to the project directory:
 
-```bash
-cd ai-career-copilot
-```
+cd smartcart
 
 Install dependencies:
 
-```bash
 pip install -r requirements.txt
-```
+
+Configure MySQL Database:
+
+* Create a MySQL database.
+* Update database credentials in app.py.
+* Import required database tables.
 
 Run the application:
 
-```bash
 python app.py
-```
 
 Open in your browser:
 
-```text
 http://127.0.0.1:5000
-```
 
 ## 🎯 Future Enhancements
 
-- ATS Compatibility Analysis
-- Job Description Matching
-- Skill Gap Detection
-- Interview Preparation Suggestions
-- AI-Powered Career Recommendations
-- Resume Comparison Reports
+* Online Payment Gateway Integration
+* Product Review & Rating System
+* Order Tracking
+* Admin Dashboard
+* Inventory Management
+* Personalized Product Recommendations
+* Email Notifications
 
 ## 🌟 Key Highlights
 
-- Automated Resume Evaluation
-- Career Readiness Assessment
-- Responsive Web Application
-- Clean and Modern User Interface
-- Flask-Based Backend Architecture
+* Full Stack E-Commerce Application
+* Flask & MySQL Backend Integration
+* User Authentication System
+* Shopping Cart & Wishlist Functionality
+* AI-Powered Shopping Assistant
+* Responsive Modern User Interface
+* Cloud Deployment Ready
 
 ## 👨‍💻 Author
 
 Yogi Charan Sharma
 
-Portfolio:
-https://yogicharanportfolio.netlify.app/
+Portfolio: https://yogicharanportfolio.netlify.app/
 
-LinkedIn:
-https://www.linkedin.com/in/yogi-charan-sharma-235b62282
+LinkedIn: https://www.linkedin.com/in/yogi-charan-sharma-235b62282
 
-GitHub:
-https://github.com/yogicharan2828-coder
+GitHub: https://github.com/yogicharan2828-coder
