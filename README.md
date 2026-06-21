@@ -143,7 +143,7 @@ http://127.0.0.1:5000
 
 Yogi Charan Sharma
 
-portfolio : https://yogicharansharmaportfolio.netlify.app/
+portfolio : https://charansharmaportfolio.netlify.app/
 
 LinkedIn: https://www.linkedin.com/in/yogi-charan-sharma-235b62282
 
